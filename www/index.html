@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="ja" ng-app="umpire-app">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="components/loader.js"></script>
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js"></script>
+</head>
+<body>
+
+    <ons-page ng-controller="umpireCtrl">
+        <ons-toolbar>
+            
+            <div class="center">COUNTER</div>
+        </ons-toolbar>
+        <div class="wrapper">
+            <div class="score" ng-show="scoreList.length">
+                <table>
+                    <tr>
+                       <td ng-repeat="score in scoreList">{{score.inning | summary}}</td>
+                    </tr>
+                    <tr>
+                       <td ng-repeat="score in scoreList" ng-class="{active : isEdit(0,score.inning)}" ng-click="scorePanel(0,score.inning,score.first);">{{score.first}}</td>
+                    </tr>
+                    <tr>
+                       <td ng-repeat="score in scoreList" ng-class="{active : isEdit(1,score.inning)}" ng-click="scorePanel(1,score.inning,score.second);">{{score.second}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="count" ng-hide="inputPanel.status">
+                 <table>
+                    <tr class="b">
+                        <td id="b" ng-click="countup('ball');">B</td>
+                        <td id="b1" ng-class="{active : isCount('ball',1)}"></td>
+                        <td id="b2" ng-class="{active : isCount('ball',2)}"></td>
+                        <td id="b3" ng-class="{active : isCount('ball',3)}"></td>
+                    </tr>
+                     <tr class="s">
+                        <td id="s" ng-click="countup('strike');">S</td>
+                        <td id="s1" ng-class="{active : isCount('strike',1)}"></td>
+                        <td id="s2" ng-class="{active : isCount('strike',2)}"></td>
+                        <td id="s3"></td>
+                    </tr>
+                    <tr class="o">
+                        <td id="o" ng-click="countup('out');">O</td>
+                        <td id="o1" ng-class="{active : isCount('out',1)}"></td>
+                        <td id="o2" ng-class="{active : isCount('out',2)}"></td>
+                        <td id="o3"></td>
+                    </tr>
+                </table>
+            </div>        
+            <div class="input" ng-show="inputPanel.status">
+                 <table>
+                    <tr>
+                    	<td id="prev" class="btn inputtop" ng-click="changePrevNextInning(0);">PREV</td>
+                        <td id="next" class="btn inputtop" ng-click="changePrevNextInning(1);">NEXT</td>
+                	</tr>
+                    <tr ng-show="inputPanel.nameStatusFirst">
+                        <td colspan="2" id="point"><input type="text" class="text-input text-input--transparent" style="width:100%; margin-left:30px;" placeholder="TEAMNAME 5 characters or less" ng-model="scoreList[0].first" maxlength="5"></td>
+                    </tr>
+                    <tr ng-show="inputPanel.nameStatusSecond">
+                        <td colspan="2" id="point"><input type="text" class="text-input text-input--transparent" style="width:100%; margin-left:30px;" placeholder="TEAMNAME 5 characters or less" ng-model="scoreList[0].second" maxlength="5"></td>
+                    </tr>
+                    <tr ng-hide="inputPanel.nameStatus">
+                        <td class="btn" id="minus" ng-click="changePoint(0)">-</td>
+                        <td class="btn" id="plus"  ng-click="changePoint(1)">+</td>
+                	</tr>
+                    <tr>
+                        <td colspan="2" class="btn" id="clear" ng-click="clearPoint();">CLEAR</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="btn ok" id="set" ng-click="setScore();">OK</td>
+                    </tr>
+                </table>
+            </div>
+        </div>  
+    </ons-page>
+
+    
+</body>
+</html>

@@ -1,0 +1,126 @@
+html, body {
+  height: 100%; 
+}
+
+div.wrapper {
+  height: 100%;
+  color: #FFFFFF;
+  background-color: #16A085;
+}
+
+div.score {
+    height: 35%;  
+    width: 100%;
+    background-color: #16A085;
+}
+
+div.count {
+    height: 65%;
+    width: 100%;
+    background-color: #16A085;
+}
+div.input {
+    height: 65%;
+    width: 100%;
+    background-color: #16A085;
+}
+.score table {
+    height: 100%;  
+    width: 100%;
+    border-collapse: collapse;
+}
+.count table {
+    height: 100%;  
+    width: 100%;
+    border-collapse: collapse;
+}
+.input table {
+    height: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    //opacity:0.4;
+}
+.score table td {
+    border: 1px solid #FFFFFF;
+    text-align: center;
+}
+
+.score table td.active {
+    //border: 1px solid #F1C40F;
+    //border-top: 2px solid #F1C40F;
+    background-color: #F1C40F;
+}
+
+.count table td {
+    width: 25%;
+    border: 1px solid #16A085;
+    text-align: center;
+}
+
+.input table td {
+    width: 50%;
+    text-align: center;
+    border: 1px solid #FFFFFF;
+}
+
+.input .inputtop {
+    border-top: 0px;
+}
+
+.input .ok {
+    background-color: #E74C3C;
+}
+
+#b {
+    font-size: 30pt;
+    font-weight: bold;
+}
+#b:active {
+    color: #F1C40F;
+    background-color: #FFFFFF;
+}
+.b .active{
+    background-color: #F1C40F;
+}
+
+#s {
+    font-size: 30pt;
+    font-weight: bold;
+}
+#s:active {
+    color: #3498DB;
+    background-color: #FFFFFF;
+}
+.s .active{
+    background-color: #3498DB;
+}
+#o {
+    font-size: 30pt;
+    font-weight: bold;
+}
+#o:active {
+    color: #E74C3C;
+    background-color: #FFFFFF;
+}
+.o .active{
+    background-color: #E74C3C;
+}
+.btn:active {
+  background-color: #FFFFFF;
+  color: #16A085;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+  opacity: 0.7;
+  
+}
+
+.input span {
+    padding: 10px;
+}
+
+#point {
+    background-color: #F1C40F;
+    color: #FFFFFF;
+}
